@@ -1,0 +1,27 @@
+`timescale 1ns / 1ps
+
+// Decoder module for the character that will be shonw in the 7-segment display.
+module LEDdecoder(input [3:0] char, output reg [7:0] LED);
+    always @ (char)
+        begin
+            case (char)
+                4'h0: LED <= 8'b00000011;        // 0
+                4'h1: LED <= 8'b10011111;        // 1
+                4'h2: LED <= 8'b00100101;        // 2
+                4'h3: LED <= 8'b00001101;        // 3
+                4'h4: LED <= 8'b10011001;        // 4
+                4'h5: LED <= 8'b01001001;        // 5
+                4'h6: LED <= 8'b01000001;        // 6
+                4'h7: LED <= 8'b00011111;        // 7
+                4'h8: LED <= 8'b00000001;        // 8
+                4'h9: LED <= 8'b00001001;        // 9
+                4'hA: LED <= 8'b00010001;        // A
+                4'hB: LED <= 8'b11000001;        // b
+                4'hC: LED <= 8'b01100011;        // C
+                4'hD: LED <= 8'b10000101;        // d
+                4'hE: LED <= 8'b01100001;        // E
+                4'hF: LED <= 8'b01110001;        // F
+                default: LED <= 8'b11111111;     // BLANK
+            endcase
+        end
+endmodule
